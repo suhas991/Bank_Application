@@ -30,19 +30,19 @@ public class AccountServiceImpli implements AccountService{
 
     @Override
     public Account getAccount(long id) {
-        return acRepo.findById(id).orElseThrow(()->new AccountNotFoundException("Account with "+id+" not found"));
+        return acRepo.findById(id).orElseThrow(()->new AccountNotFoundException("Account with id "+id+" not found"));
     }
 
     @Override
     public Account depositAmount(long id,double amount) {
-        Account acc = acRepo.findById(id).orElseThrow(()->new AccountNotFoundException("Account with "+id+" not found"));
+        Account acc = acRepo.findById(id).orElseThrow(()->new AccountNotFoundException("Account with id "+id+" not found"));
         acc.setBalance(acc.getBalance()+amount);
         return acRepo.save(acc);
     }
 
     @Override
     public Account withdrawAmount(long id,double amount) {
-        Account acc = acRepo.findById(id).orElseThrow(()->new AccountNotFoundException("Account with "+id+" not found"));
+        Account acc = acRepo.findById(id).orElseThrow(()->new AccountNotFoundException("Account with id "+id+" not found"));
         if(acc.getBalance() < amount){
             throw new InsufficientFundException("Insufficient funds");
         }
