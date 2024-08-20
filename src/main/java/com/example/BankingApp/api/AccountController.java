@@ -60,7 +60,7 @@ public class AccountController {
            return accountService.updateDetails(account);
        }
 
-       @GetMapping("/current")
+       @GetMapping("/currentAccount")
        @ResponseStatus(HttpStatus.ACCEPTED)
        public List<Account> getCurrent(){
            return accountService.getCurrent();

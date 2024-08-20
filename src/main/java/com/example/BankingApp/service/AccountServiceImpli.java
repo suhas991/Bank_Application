@@ -63,7 +63,14 @@ public class AccountServiceImpli implements AccountService{
 
     @Override
     public Account updateDetails(Account account) {
-        return acRepo.save(account);
+
+        if(acRepo.existsById(account.getId())){
+            return acRepo.save(account);
+        }
+        else{
+            throw new AccountNotFoundException("Account with id  "+account.getId()+ " not found");
+        }
+
     }
 
     @Override
