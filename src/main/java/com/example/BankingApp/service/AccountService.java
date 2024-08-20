@@ -11,4 +11,8 @@ public interface AccountService {
       public Account depositAmount(long id,double amount);
       public Account withdrawAmount(long id,double amount);
       public List<Account> displayAll();
+      public double getBalance(long id);
+      public Account updateDetails(Account account);
+      public List<Account> getCurrent();
+      public Account deleteAccount(long id);
 }

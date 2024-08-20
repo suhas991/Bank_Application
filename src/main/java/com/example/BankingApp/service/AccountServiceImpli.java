@@ -54,4 +54,30 @@ public class AccountServiceImpli implements AccountService{
     public List<Account> displayAll() {
         return acRepo.findAll();
     }
+
+    @Override
+    public double getBalance(long id) {
+        Account acc = acRepo.findById(id).orElseThrow(()->new AccountNotFoundException("Account with id  "+id+ " not found"));
+        return acc.getBalance();
+    }
+
+    @Override
+    public Account updateDetails(Account account) {
+        return acRepo.save(account);
+    }
+
+    @Override
+    public List<Account> getCurrent() {
+        List<Account> all = acRepo.findAll();
+        all.removeIf(acc -> acc.getAccType().equals("Saving"));
+        return all;
+    }
+
+    @Override
+    public Account deleteAccount(long id) {
+        Account acc = acRepo.findById(id).orElseThrow(()->new AccountNotFoundException("Account with id  "+id+ " not found"));
+        acRepo.deleteById(id);
+        return acc;
+    }
+
 }

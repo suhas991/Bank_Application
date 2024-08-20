@@ -47,4 +47,28 @@ public class AccountController {
            Double amount = request.get("amount");
            return accountService.withdrawAmount(id,amount);
        }
+
+       @GetMapping("/balance/{id}")
+       @ResponseStatus(HttpStatus.ACCEPTED)
+       public double getBalance(@PathVariable long id){
+           return accountService.getBalance(id);
+       }
+
+       @PutMapping
+       @ResponseStatus(HttpStatus.ACCEPTED)
+       public Account update(@RequestBody Account account){
+           return accountService.updateDetails(account);
+       }
+
+       @GetMapping("/current")
+       @ResponseStatus(HttpStatus.ACCEPTED)
+       public List<Account> getCurrent(){
+           return accountService.getCurrent();
+       }
+
+       @DeleteMapping("/delete/{id}")
+       @ResponseStatus(HttpStatus.ACCEPTED)
+       public Account delete(@PathVariable long id){
+           return accountService.deleteAccount(id);
+       }
 }
