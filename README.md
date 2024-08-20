@@ -1,2 +1,5 @@
-![image](https://github.com/user-attachments/assets/577a274d-2d23-4b99-8ba1-cd3c8256922b)
+API ENDPOINTS
+
+![image](https://github.com/user-attachments/assets/248c62dc-3632-4104-b226-faee7758271a)
+
 
