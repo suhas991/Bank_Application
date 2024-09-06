@@ -11,6 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/bank/accounts")
+@CrossOrigin("http://localhost:5173/")
 public class AccountController {
 
        @Autowired
@@ -65,7 +66,7 @@ public class AccountController {
        public List<Account> getCurrent(){
            return accountService.getCurrent();
        }
-
+       
        @DeleteMapping("/delete/{id}")
        @ResponseStatus(HttpStatus.ACCEPTED)
        public Account delete(@PathVariable long id){
